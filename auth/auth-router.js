@@ -13,12 +13,17 @@ router.post('/register', (req, res) => {
 
   Users.add(user)
     .then(saved => {
+      // TOKEN
+      // const token = getJwt(user)
+      // res.status(201).json({ saved, token });
       res.status(201).json(saved);
     })
     .catch(error => {
       res.status(500).json(error);
     });
 });
+
+
 
 router.post('/login', (req, res) => {
   let { username, password } = req.body;
@@ -49,7 +54,7 @@ router.post('/login', (req, res) => {
 function getJwt(user) {
   const payload = { 
     // subject is normally the user's id (who/what the token describes)
-    subject: user.id, //translates into the "sub" property on the token
+     subject: user.id, //translates into the "sub" property on the token
      username: user.username,
      jwtid: 1
    }

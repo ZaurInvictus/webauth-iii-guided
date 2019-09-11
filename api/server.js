@@ -26,7 +26,7 @@ server.get('/token', (req, res) => {
  const role = 'admin'
  const payload = { 
    // subject is normally the user's id (who/what the token describes)
-   subject: 'me', //translates into the "sub" property on the token
+   subject: 'me', // translates into the "sub" property on the token
     role: 'admin'
   }
   const secret = 'is it secret is it safe?'
